@@ -14,7 +14,7 @@
     {
       id: 'project-1',
       title: 'VR Experience',
-      thumbnail: 'https://via.placeholder.com/400x300?text=VR+Experience',
+      thumbnail: '/images/projects/project-1/1_0_header_4.png',
       tags: ['vr', 'creative coding']
     },
     {

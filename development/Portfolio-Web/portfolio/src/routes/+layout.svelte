@@ -21,7 +21,6 @@
         display: flex;
         flex-flow: column;
         height: 100%;
-        padding: 1.5em;
     }
 
     main {
@@ -36,9 +35,10 @@
         top: .7em;
         z-index: 999;
 
-        display: inline-block;
+        display: flex;
+        justify-content: end;
         padding: 1rem;
-        background: #ffffff;
+        background: #ffffff35;
         border-radius: 50px;
        
         margin-bottom: 1em;

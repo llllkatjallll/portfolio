@@ -12,7 +12,7 @@
   };
 </script>
 
-<h1>{project.title}</h1>
+
 
 {#each project.blocks as block}
   {#if blockComponents[block.type]}
