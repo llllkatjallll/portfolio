@@ -1,0 +1,3 @@
+# Placeholder Image
+
+This is a placeholder for `hackathon.jpg`. In a real implementation, this would be an actual image file.
