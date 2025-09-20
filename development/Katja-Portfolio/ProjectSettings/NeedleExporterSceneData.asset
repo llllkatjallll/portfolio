@@ -17,5 +17,14 @@ MonoBehaviour:
     Projects:
     - ProjectPath: Needle/newProject
     BuilderScene: 
+  - Path: Assets/Scenes/Kokoshnik.unity
+    Projects:
+    - ProjectPath: Needle/newProject
+    BuilderScene: 
+  - Path: Assets/Scenes/tSNE-World.unity
+    Projects:
+    - ProjectPath: ../tSne-Web/tSNE-World
+    BuilderScene: 
   Projects:
   - ProjectPath: Needle/newProject
+  - ProjectPath: ../tSne-Web/tSNE-World
