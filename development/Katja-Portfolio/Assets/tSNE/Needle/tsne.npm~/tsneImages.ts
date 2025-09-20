@@ -51,7 +51,8 @@ export class tsneImages extends Behaviour {
 
         for (const entry of data) {
             // Build the full URL from your folder path and the file name.
-            const imageUrl = `include/images/${entry.name}.jpg`;
+            //const imageUrl = `include/rijksmuseum/${entry.name}.jpg`;
+             const imageUrl = `include/rijksmuseum/${entry.name}`;
 
 
 
@@ -68,13 +69,13 @@ export class tsneImages extends Behaviour {
                 const instance = await this.objectToInstantiate.instantiate(this.gameObject);
                 if (instance) {
                     // get component rectTransform and set position
-                    const rectTransform = instance.getComponent(RectTransform);
+                    const rectTransform = instance.children[0].getComponent(RectTransform);
                     if (rectTransform) {
 
                         rectTransform.worldPosition = new Vector3(entry.x, entry.y, entry.z);
                     }
 
-                    const imgComp = instance.getComponent(Image);
+                    const imgComp = instance.children[0].getComponent(Image);
                     if (imgComp) {
 
                         imgComp.image = texture;
@@ -186,7 +187,7 @@ export class tsneImages extends Behaviour {
         let anyMoving = false;
         for (let index = 0; index < children.length && index < this.targetPositions.length; index++) {
             const child = children[index];
-            const rectTransform = child.getComponent(RectTransform);
+            const rectTransform = child.children[0].getComponent(RectTransform);
             if (rectTransform && this.targetPositions[index]) {
                 const currentPos = rectTransform.worldPosition;
                 const targetPos = this.targetPositions[index];
@@ -220,7 +221,7 @@ export class tsneImages extends Behaviour {
         console.log("Initial positions vs target positions:");
         for (let i = 0; i < Math.min(3, children.length); i++) {
             const child = children[i];
-            const rectTransform = child.getComponent(RectTransform);
+            const rectTransform = child.children[0].getComponent(RectTransform);
             if (rectTransform && this.targetPositions[i]) {
                 console.log(`Child ${i}: Current=${JSON.stringify(rectTransform.worldPosition)} Target=${JSON.stringify(this.targetPositions[i])}`);
             }
@@ -233,7 +234,7 @@ export class tsneImages extends Behaviour {
         if (children) {
             for (let index = 0; index < children.length; index++) {
                 const child = children[index];
-                const rectTransform = child.getComponent(RectTransform);
+                const rectTransform = child.children[0].getComponent(RectTransform);
                 if (rectTransform && this.targetPositions[index]) {
                     rectTransform.worldPosition.copy(this.targetPositions[index]);
                 }
