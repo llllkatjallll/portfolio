@@ -12,6 +12,7 @@ namespace Needle.Typescript.GeneratedComponents
 		public Needle.Engine.FileReference @jsonFile2D;
 		public UnityEngine.Vector3 @position;
 		public void awake(){}
+		public void mapRange(float @value, float @inMin, float @inMax, float @outMin, float @outMax){}
 		public void update(){}
 		public void changeTo2DPositions(){}
 		public void changeTo3DPositions(){}

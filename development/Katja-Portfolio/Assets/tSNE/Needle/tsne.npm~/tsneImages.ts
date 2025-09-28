@@ -45,7 +45,18 @@ export class tsneImages extends Behaviour {
         const data2d = await response2d.json();
 
         this.jsonData3D = data;
-        this.jsonData2D = data2d;
+        this.jsonData2D = data;
+
+        //change mapping for 3d data
+        // current x,y, and z are between -30 and 30, we want to map them to -50 and 50
+        this.jsonData3D = data.map((entry: { name: any; x: any; y: any; z: any; }) => ({
+            name: entry.name,
+            x: this.mapRange(entry.x, -30, 30, -90, 90),
+            y: this.mapRange(entry.y, -30, 30, -50, 50),
+            z: this.mapRange(entry.z, -30, 30, -50, 50)
+        }));
+
+        //this.jsonData2D = this.jsonData3D;
 
         console.log("Loaded JSON data:", data);
 
@@ -95,6 +106,10 @@ export class tsneImages extends Behaviour {
 
         // Initialize targetPositions to 3D positions
         this.targetPositions = this.jsonData3D.map(e => new Vector3(e.x, e.y, e.z));
+    }
+
+    mapRange(value: number, inMin: number, inMax: number, outMin: number, outMax: number): number {
+        return (value - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
     }
 
 
