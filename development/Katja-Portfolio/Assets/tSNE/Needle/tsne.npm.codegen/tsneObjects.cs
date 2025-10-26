@@ -11,6 +11,8 @@ namespace Needle.Typescript.GeneratedComponents
 		public void awake(){}
 		public void mapRange(float @value, float @inMin, float @inMax, float @outMin, float @outMax){}
 		public void start(){}
+		public void update(){}
+		public void onDestroy(){}
 	}
 }
 

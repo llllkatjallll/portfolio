@@ -148,7 +148,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18cefecc9e328c0a2f3f1bfcf85274c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myStringField: Hello World
+  jsonFile3D:
+    Mode: 0
+    File: {fileID: 4900000, guid: 29e9cac704b9b674ba7201d2fc5b320e, type: 3}
+    String: 
 --- !u!4 &118793730
 Transform:
   m_ObjectHideFlags: 0
@@ -265,7 +268,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 416609966}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
@@ -361,7 +364,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.007679378, z: -0, w: 0.99997056}
   m_LocalPosition: {x: 0.18, y: 4.1, z: -9.8}
-  m_LocalScale: {x: 1.0000132, y: 1.0000086, z: 1.0000083}
+  m_LocalScale: {x: 1.0000134, y: 1.0000086, z: 1.0000085}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
