@@ -152,6 +152,7 @@ MonoBehaviour:
     Mode: 0
     File: {fileID: 4900000, guid: 29e9cac704b9b674ba7201d2fc5b320e, type: 3}
     String: 
+  myCamera: {fileID: 706762905}
 --- !u!4 &118793730
 Transform:
   m_ObjectHideFlags: 0
@@ -364,7 +365,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.007679378, z: -0, w: 0.99997056}
   m_LocalPosition: {x: 0.18, y: 4.1, z: -9.8}
-  m_LocalScale: {x: 1.0000134, y: 1.0000086, z: 1.0000085}
+  m_LocalScale: {x: 1.0000137, y: 1.0000086, z: 1.0000088}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -491,7 +492,7 @@ MonoBehaviour:
     Version: 1.0.0
     Path: Assets/tSNE/Needle/tsne.npm.npmdef
     Guid: a07f4bb42f0703d4cbcb89a31de337d4
-  CloudName: tsne-modernPaintings
+  CloudName: tsne-rijksmuseum
   CloudTeam: org_6z9l3iwgtjv8
 --- !u!4 &784234924
 Transform:
