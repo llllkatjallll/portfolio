@@ -20,20 +20,26 @@
     {
       id: 'project-2',
       title: 'Web Portfolio',
-      thumbnail: 'https://via.placeholder.com/400x300?text=Web+Portfolio',
+      thumbnail: 'https://picsum.photos/400/300',
       tags: ['web']
     },
     {
       id: 'project-3',
       title: 'AR Art Installation',
-      thumbnail: 'https://via.placeholder.com/400x300?text=AR+Art+Installation',
+      thumbnail: 'https://picsum.photos/400/300',
       tags: ['augmented reality', 'creative coding']
     },
     {
       id: 'project-4',
       title: 'Hackathon Project',
-      thumbnail: 'https://via.placeholder.com/400x300?text=Hackathon+Project',
+      thumbnail: 'https://picsum.photos/400/300',
       tags: ['hackathon', 'web']
+    },
+    {
+      id: 'project-5',
+      title: 'Creative Coding Experiment',
+      thumbnail: 'https://picsum.photos/400/300',
+      tags: ['creative coding']
     }
     // Add more projects as needed
   ];
@@ -127,6 +133,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 2rem;
+    padding: 30px;
   }
   
   .project-card {
