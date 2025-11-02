@@ -26,7 +26,7 @@
     {
       id: 'project-3',
       title: 'AR Art Installation',
-      thumbnail: 'https://picsum.photos/400/300',
+      thumbnail: '/images/projects/project-3/heroimage.webp',
       tags: ['augmented reality', 'creative coding']
     },
     {
@@ -131,7 +131,7 @@
   
   .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     gap: 2rem;
     padding: 30px;
   }
@@ -144,6 +144,7 @@
     transition: transform 0.3s, box-shadow 0.3s;
     text-decoration: none;
     color: inherit;
+    border: none;
   }
   
   .project-card:hover {
