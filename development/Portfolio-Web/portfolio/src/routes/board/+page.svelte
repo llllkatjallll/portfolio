@@ -8,42 +8,49 @@
   import "@xyflow/svelte/dist/style.css";
   import ImageNode from "../../components/flow-elements/ImageNode.svelte";
   import Postit from "../../components/flow-elements/Postit.svelte";
+  import { projects } from "../../lib/data/projects.js";
 
   const nodeTypes = {
     imageNode: ImageNode,
     postit: Postit,
   };
+  const initialNodes: any[] = [];
+  const initialEdges: any[] = [];
 
-  let nodes = $state.raw([
-    {
-      id: "1",
-      type: 'default',
-      position: { x: 0, y: 200 },
-      data: { label: "Hello" },
-    },
-    {
-      id: "2",
-      position: { x: 100, y: 300 },
-      data: { label: "World" },
-    },
-    {
-      id: "3",
-      type: "imageNode",
-      position: { x: 300, y: 300 },
-      data: { imageUrl: "/images/projects/project-1/1_0_header_4.png" },
-    },
-    {
-      id: "4",
-      type: "postit",
-      position: { x: 500, y: 100 },
-      data: { text: "This is a post-it note!", color: "purple" },
-    },
-  ]);
+  projects.forEach((project, index) => {
+    const heroBlock = project.blocks.find((b) => b.type === "hero");
+    if (heroBlock) {
+      const imageNodeId = `img-${project.slug}`;
+      const postitNodeId = `postit-${project.slug}`;
 
-  let edges = $state.raw([{ id: "e1-2", source: "1", target: "2" }]);
+      initialNodes.push({
+        id: imageNodeId,
+        type: "imageNode",
+        position: { x: index * 650, y: 100 },
+        data: { imageUrl: heroBlock.data.img },
+      });
+
+      initialNodes.push({
+        id: postitNodeId,
+        type: "postit",
+        position: { x: index * 650, y: 450 },
+        data: { text: heroBlock.data.content, color: "yellow" },
+      });
+
+      initialEdges.push({
+        id: `e-${imageNodeId}-${postitNodeId}`,
+        source: imageNodeId,
+        target: postitNodeId,
+      });
+    }
+  });
+
+  let nodes = $state.raw(initialNodes);
+
+  let edges = $state.raw(initialEdges);
 </script>
 
-<SvelteFlow bind:nodes bind:edges fitView {nodeTypes} >
+<SvelteFlow bind:nodes bind:edges fitView {nodeTypes}>
   <Background
     patternColor="#4fe870"
     bgColor="#fafafa"
