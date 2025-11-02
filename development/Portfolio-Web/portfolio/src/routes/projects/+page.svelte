@@ -1,6 +1,8 @@
  <script lang="ts">
   import { onMount } from 'svelte';
   import { base } from '$app/paths';
+  import { projects as allProjectsData } from '$lib/data/projects.js';
+  
   
   interface Project {
     id: string;
@@ -9,42 +11,14 @@
     tags: string[];
   }
   
-  // Sample project data - replace with your actual projects
-  let projects: Project[] = [
-    {
-      id: 'project-1',
-      title: 'VR Experience',
-      thumbnail: '/images/projects/project-1/1_0_header_4.png',
-      tags: ['vr', 'creative coding']
-    },
-    {
-      id: 'project-2',
-      title: 'Web Portfolio',
-      thumbnail: 'https://picsum.photos/400/300',
-      tags: ['web']
-    },
-    {
-      id: 'project-3',
-      title: 'AR Art Installation',
-      thumbnail: '/images/projects/project-3/heroimage.webp',
-      tags: ['augmented reality', 'creative coding']
-    },
-    {
-      id: 'project-4',
-      title: 'Hackathon Project',
-      thumbnail: 'https://picsum.photos/400/300',
-      tags: ['hackathon', 'web']
-    },
-    {
-      id: 'project-5',
-      title: 'Creative Coding Experiment',
-      thumbnail: 'https://picsum.photos/400/300',
-      tags: ['creative coding']
-    }
-    // Add more projects as needed
-  ];
+  let projects: Project[] = allProjectsData.map(p => ({
+    id: p.slug,
+    title: p.title,
+    thumbnail: p.blocks.find(b => b.type === 'hero')?.data.img || 'https://picsum.photos/400/300',
+    tags: p.tags
+  }));
   
-  const allTags = ['hackathon', 'vr', 'creative coding', 'augmented reality', 'web'];
+  const allTags = [...new Set(allProjectsData.flatMap(p => p.tags))].sort();
   let selectedTags: string[] = $state([]);
   let filteredProjects = $state(projects);
   
