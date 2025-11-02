@@ -4,44 +4,81 @@
   let { data }: NodeProps = $props();
 
 
-  const defaultColor = '#a77bca'; 
+  const defaultColor = '#e7c6ff'; 
   const colors = [
-    { name: 'yellow', hex: '#ffc' },
-    { name: 'pink', hex: '#fbc' },
-    { name: 'green', hex: '#cfc' },
-    { name: 'blue', hex: '#ccf' },
-    { name: 'orange', hex: '#fca' },
+    { name: 'yellow', hex: '#ffd670' },
+    { name: 'pink', hex: '#ff70a6' },
+    { name: 'green', hex: '#e9ff70' },
+    { name: 'blue', hex: '#70d6ff' },
+    { name: 'orange', hex: '#ff9770' },
+    { name: 'purple', hex: '#9fa0ff' },
   ];
 
-  // i get current color as name "green" "pink" and so on. find the correct hex based on colors array.
   let currentColor = colors.find(c => c.name === data.color)?.hex || defaultColor;
 
+  function darkenColor(hex: string, percent: number) {
+    hex = hex.replace('#', '');
+    if (hex.length === 3) {
+      hex = hex.split('').map(char => char + char).join('');
+    }
+
+    let r = parseInt(hex.substring(0, 2), 16);
+    let g = parseInt(hex.substring(2, 4), 16);
+    let b = parseInt(hex.substring(4, 6), 16);
+
+    const factor = 1 - percent / 100;
+    r = Math.max(0, Math.floor(r * factor));
+    g = Math.max(0, Math.floor(g * factor));
+    b = Math.max(0, Math.floor(b * factor));
+
+    return `#${r.toString(16).padStart(2, '0')}${g.toString(16).padStart(2, '0')}${b.toString(16).padStart(2, '0')}`;
+  }
+
+  let darkerCurrentColor = darkenColor(currentColor, 15);
 
 </script>
 
-<div class="postit-node" style="background-color: {currentColor};">
-  <Handle type="target" position={Position.Left} />
+<div class="postit-node" style="--postit-color: {currentColor}; --postit-color-dark: {darkerCurrentColor};">
+<!--   <Handle type="target" position={Position.Left} /> -->
   
   <div class="postit-content">
     <p>{data.text}</p>
   </div>
 
 
-  <Handle type="source" position={Position.Right} />
+<!--   <Handle type="source" position={Position.Right} /> -->
 </div>
 
 <style>
   .postit-node {
-    border: 1px solid #aaa;
-    border-radius: 4px;
-    padding: 10px;
+    background: var(--postit-color);
+    padding: 20px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     font-family: 'Handlee', cursive; /* Optional: for a handwritten feel */
     min-width: 200px;
     min-height: 150px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    position: relative;
+  }
+
+  .postit-node:after {
+    content: "";
+    position: absolute;
+    bottom: -2em;
+    left: 0;
+    right: 2em;
+    border-width: 1.2em;
+    border-style: solid;
+    border-color: var(--postit-color);
+  }
+
+  .postit-node:before {
+    content: "";
+    position: absolute;
+    bottom: -2em;
+    right: 0;
+    border-width: 2em 2em 0 0;
+    border-style: solid;
+    border-color: var(--postit-color-dark) transparent;
   }
 
   /* Optional: Google Font for a post-it look */
@@ -51,51 +88,5 @@
     flex-grow: 1; /* Allows the textarea to take available space */
   }
 
-  .postit-node textarea {
-    width: 100%;
-    height: 100%; /* Fill parent container */
-    border: none;
-    background: transparent;
-    resize: none;
-    font-size: 1.1em;
-    padding: 0;
-    margin: 0;
-    font-family: inherit; /* Use Handlee if available */
-    color: #333;
-  }
-  .postit-node textarea:focus {
-    outline: none;
-  }
 
-  .color-picker {
-    display: flex;
-    gap: 5px;
-    margin-top: 10px;
-    justify-content: center;
-  }
-
-  .color-swatch {
-    width: 20px;
-    height: 20px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 50%;
-    cursor: pointer;
-    transition: transform 0.1s ease-in-out;
-  }
-
-  .color-swatch:hover {
-    transform: scale(1.1);
-  }
-
-  .color-swatch.selected {
-    border: 2px solid #333; /* Highlight selected color */
-    box-shadow: 0 0 0 2px white, 0 0 0 4px #333;
-  }
-
-  /* Handle styling (optional, Svelte Flow handles default) */
-  .svelte-flow__handle {
-    background: #555;
-    width: 8px;
-    height: 8px;
-  }
 </style>

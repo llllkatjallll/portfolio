@@ -36,7 +36,7 @@
       id: "4",
       type: "postit",
       position: { x: 500, y: 100 },
-      data: { text: "This is a post-it note!", color: "green" },
+      data: { text: "This is a post-it note!", color: "purple" },
     },
   ]);
 
