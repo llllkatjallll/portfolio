@@ -3,9 +3,14 @@
     import { page } from "$app/stores";
     import NeedleEngine from "../../components/NeedleEngine.svelte";
 
-    export let data : {entries:Array<{name:string, url:string}>} = {entries:[]};
+    interface Props {
+        data?: {entries:Array<{name:string, url:string}>};
+        children?: import('svelte').Snippet;
+    }
 
-    $: src = $page.data.sceneFile;
+    let { data = {entries:[]}, children }: Props = $props();
+
+    let src = $derived($page.data.sceneFile);
 </script>
 
 <menu>
@@ -18,7 +23,7 @@
 {#if src}
     <NeedleEngine src="{base}/{src}" />
 {/if}
-<slot />
+{@render children?.()}
 
 <!-- for debugging -->
 <!-- <pre>{JSON.stringify($page, null, 2)}</pre> -->

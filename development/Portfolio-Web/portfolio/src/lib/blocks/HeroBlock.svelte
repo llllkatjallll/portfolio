@@ -1,7 +1,5 @@
-<script>
-    export let content;
-    export let img;
-    export let description;
+<script lang="ts">
+    let { content, img, description } = $props();
 </script>
 
 <div class="container">

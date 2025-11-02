@@ -1,9 +1,9 @@
 <!-- src/routes/projects/[slug]/+page.svelte -->
-<script>
+<script lang="ts">
   import HeroImageBlock from '$lib/blocks/HeroBlock.svelte';
   import TextBlock from '$lib/blocks/TextBlock.svelte';
 
-  export let data;
+  let { data } = $props();
   const { project } = data;
 
   const blockComponents = {
@@ -16,6 +16,7 @@
 
 {#each project.blocks as block}
   {#if blockComponents[block.type]}
-    <svelte:component this={blockComponents[block.type]} {...block.data} />
+    {@const SvelteComponent = blockComponents[block.type]}
+    <SvelteComponent {...block.data} />
   {/if}
 {/each}

@@ -45,8 +45,8 @@
   ];
   
   const allTags = ['hackathon', 'vr', 'creative coding', 'augmented reality', 'web'];
-  let selectedTags: string[] = [];
-  let filteredProjects = projects;
+  let selectedTags: string[] = $state([]);
+  let filteredProjects = $state(projects);
   
   function toggleTag(tag: string) {
     if (selectedTags.includes(tag)) {
@@ -79,7 +79,7 @@
   {#each allTags as tag}
     <button 
       class="tag {selectedTags.includes(tag) ? 'active' : ''}" 
-      on:click={() => toggleTag(tag)}
+      onclick={() => toggleTag(tag)}
     >
       {tag}
     </button>

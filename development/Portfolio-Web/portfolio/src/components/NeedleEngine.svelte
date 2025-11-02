@@ -1,7 +1,13 @@
 <script lang="ts">
     import { onMount } from "svelte";
+    interface Props {
+        [key: string]: any
+    }
 
-    $: src = "";
+    let { ...props }: Props = $props();
+
+    let src = $state("");
+    
 
     onMount(async () => {
         await import("@needle-tools/engine");
@@ -11,7 +17,7 @@
     });
 </script>
 
-<needle-engine loading-style="light" {src} {...$$props} />
+<needle-engine loading-style="light" {src} {...props}></needle-engine>
 
 <style>
     needle-engine {

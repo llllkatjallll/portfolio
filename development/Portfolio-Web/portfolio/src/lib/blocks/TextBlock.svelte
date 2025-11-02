@@ -1,6 +1,6 @@
 
-<script>
-  export let content;
+<script lang="ts">
+  let { content } = $props();
 </script>
 
 <div class="text-block">

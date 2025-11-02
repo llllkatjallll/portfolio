@@ -1,4 +1,4 @@
-﻿/*
+/*
 * Developer Information:
 * This file was generated using Unity 6000.0.41f1.
 * Do not modify this file manually.

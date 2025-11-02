@@ -2,9 +2,14 @@
   import "../global.css";
   import { base } from "$app/paths";
   import { goto } from "$app/navigation";
+  interface Props {
+    children?: import('svelte').Snippet;
+  }
+
+  let { children }: Props = $props();
 
   // State to toggle between classic and board view
-  let isBoardView = false;
+  let isBoardView = $state(false);
   let currentRoute = "/";
   function toggleView() {
     if (!isBoardView) {
@@ -29,12 +34,12 @@
     <a href="{base}/contact">Contact</a>
 
     <!-- Toggle classic/board view -->
-    <button on:click={toggleView}>
+    <button onclick={toggleView}>
       {isBoardView ? "Classic View" : "Board View"}
     </button>
   </div>
   <main>
-    <slot />
+    {@render children?.()}
   </main>
 </div>
 
