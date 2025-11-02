@@ -1,6 +1,8 @@
 import { defineConfig } from 'vite';
 import mkcert from 'vite-plugin-mkcert';
 import { sveltekit } from '@sveltejs/kit/vite';
+import tailwindcss from '@tailwindcss/vite';
+
 
 // https://github.com/sapphi-red/vite-plugin-static-copy#usage
 import { viteStaticCopy } from 'vite-plugin-static-copy'
@@ -31,6 +33,7 @@ export default defineConfig(async ({ command }) => {
                 }),
             }),
             sveltekit(),
+            tailwindcss(),
         ],
         server: {
             port: 3000,

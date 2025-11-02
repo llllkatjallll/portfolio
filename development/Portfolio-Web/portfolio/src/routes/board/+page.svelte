@@ -52,7 +52,7 @@
 
 <SvelteFlow bind:nodes bind:edges fitView {nodeTypes}>
   <Background
-    patternColor="#4fe870"
+    patternColor="#dec9e9"
     bgColor="#fafafa"
     variant={BackgroundVariant.Lines}
     gap={100}
