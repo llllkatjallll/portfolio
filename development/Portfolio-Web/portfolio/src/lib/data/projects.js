@@ -45,7 +45,7 @@ export const projects = [
       {
         type: 'hero', data: {
           content: "In Arm's Reach",
-          img: '/images/projects/project-3/heroimage.webp', // Example image path for the hero block
+          img: '/images/projects/project-3/iceberg.gif', // Example image path for the hero block
           description: 'MIT Hackathon Winner', // Example description for the hero block
           date: '2025-01-15' // Example date for the hero block
         }

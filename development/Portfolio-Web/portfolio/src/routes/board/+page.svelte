@@ -50,7 +50,7 @@
   let edges = $state.raw(initialEdges);
 </script>
 
-<SvelteFlow bind:nodes bind:edges fitView {nodeTypes}>
+<SvelteFlow bind:nodes  fitView {nodeTypes}>
   <Background
     patternColor="#dec9e9"
     bgColor="#fafafa"

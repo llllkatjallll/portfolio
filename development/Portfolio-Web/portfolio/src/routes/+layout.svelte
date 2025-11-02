@@ -1,42 +1,48 @@
 <script lang="ts">
   import "../global.css";
-  import { base } from "$app/paths";
   import { goto } from "$app/navigation";
+  import { page } from "$app/stores";
+
   interface Props {
-    children?: import('svelte').Snippet;
+    children?: import("svelte").Snippet;
   }
 
   let { children }: Props = $props();
 
   // State to toggle between classic and board view
   let isBoardView = $state(false);
-  let currentRoute = "/";
+
+
+
+
   function toggleView() {
-    if (!isBoardView) {
-      currentRoute = window.location.pathname;
-    }
-
-    isBoardView = !isBoardView;
-
+       isBoardView = !isBoardView;
     if (isBoardView) {
-      goto(`${base}/board`);
+      goto(`/board`);
     } else {
-      goto(`${base}${currentRoute}`);
+      goto(`/projects`);
     }
   }
 </script>
 
 <div class="app">
   <div class="header">
-    <a href="{base}/">About</a>
-    <a href="{base}/projects">Projects</a>
-    <a href="{base}/teaching">Teaching</a>
-    <a href="{base}/contact">Contact</a>
+    <a href="/">About</a>
+    <a href="/projects">Projects</a>
+    <a href="/teaching">Teaching</a>
+    <a href="/contact">Contact</a>
 
-    <!-- Toggle classic/board view -->
-    <button onclick={toggleView}>
-      {isBoardView ? "Classic View" : "Board View"}
-    </button>
+
+    <label class="flex cursor-pointer gap-2">
+      <span class="label-text">Classic</span>
+      <input 
+        type="checkbox"
+        value="synthwave"
+        class="toggle theme-controller"
+        onchange={toggleView}
+      />
+      <span class="label-text">Board</span>
+    </label>
   </div>
   <main>
     {@render children?.()}
