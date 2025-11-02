@@ -1,14 +1,13 @@
 <script lang="ts">
   import { Handle, Position, type NodeProps } from '@xyflow/svelte';
   
-  // Svelte Flow injects the node props, including 'data'
   let { data }: NodeProps = $props(); 
 
-  // data.imageUrl is the property you will define when creating the node
+
 </script>
 
 <div class="image-node">
-  <img src={data.imageUrl} alt={data.altText || 'Flow Image'} />
+  <img src={data.imageUrl}  />
   
   <Handle type="target" position={Position.Left} />
   <Handle type="source" position={Position.Right} />
@@ -24,6 +23,7 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     min-width: 150px;
     min-height: 100px;
+    max-width: 300px;
     overflow: hidden; /* important to contain the image */
   }
 
