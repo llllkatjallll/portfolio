@@ -17,6 +17,7 @@
 
   function toggleView() {
        isBoardView = !isBoardView;
+       console.log($page.url.pathname);
     if (isBoardView) {
       goto(`/board`);
     } else {
@@ -27,10 +28,10 @@
 
 <div class="app">
   <div class="header">
-    <a href="/">About</a>
-    <a href="/projects">Projects</a>
-    <a href="/teaching">Teaching</a>
-    <a href="/contact">Contact</a>
+    <a class="sora-bold" class:active={$page.url.pathname === '/'} href="/">ABOUT</a>
+  <a class="sora-bold" class:active={$page.url.pathname.startsWith('/projects')} href="/projects">PROJECTS</a>
+    <a class="sora-bold" class:active={$page.url.pathname.startsWith('/teaching')} href="/teaching">TEACHING</a>
+    <a class="sora-bold" class:active={$page.url.pathname.startsWith('/contact')} href="/contact">CONTACT</a>
 
 
     <label class="flex cursor-pointer gap-2">
@@ -78,6 +79,21 @@
   }
   .header a {
     margin: 0 1rem;
+    font-size: 1.2rem;
     font-weight: bold;
+    text-decoration: none;
+    border: none;
+    padding: 10px;
+
+  }
+
+  a:hover {
+    background-color: #4be05f;
+    color: white;
+  }
+
+  .active {
+        background-color: #4be05f;
+    color: white;
   }
 </style>

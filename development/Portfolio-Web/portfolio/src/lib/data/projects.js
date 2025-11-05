@@ -13,7 +13,7 @@ export const projects = [
           date: '2025-01-15' // Example date for the hero block
         }
       },
-      { type: 'text', data: { content: 'This is a text block.' } }
+      { type: 'text', data: { content: 'This is a text block about VERA MOLNAR.' } }
 
     ]
   },
@@ -23,16 +23,15 @@ export const projects = [
     title: 'Kunst liegt im Detail',
     tags: ['vr', 'hackathon' ],
     blocks: [
-      /* { type: 'hero', data: { image: '/images/project-1.jpg', title: 'Hero Title' } }, */
+     
       {
         type: 'hero', data: {
           content: 'Kunst liegt im Detail',
-          img: '/images/projects/project-2/pattern1.png', // Example image path for the hero block
-          description: 'In dem Projekt geht es um spielerisches lernen.', // Example description for the hero block
-          date: '2025-01-15' // Example date for the hero block
+          img: '/images/projects/project-2/pattern1.png', 
+          date: '2025-01-15' 
         }
       },
-      { type: 'text', data: { content: 'This is a text block.' } }
+      { type: 'text', data: { content: 'This is a text block about KUNST.' } }
 
     ]
   },
@@ -41,13 +40,13 @@ export const projects = [
     title: 'In Arm\'s Reach',
     tags: ['augmented reality', 'installation', "web"],
     blocks: [
-      /* { type: 'hero', data: { image: '/images/project-1.jpg', title: 'Hero Title' } }, */
+    
       {
         type: 'hero', data: {
           content: "In Arm's Reach",
-          img: '/images/projects/project-3/iceberg.gif', // Example image path for the hero block
-          description: 'MIT Hackathon Winner', // Example description for the hero block
-          date: '2025-01-15' // Example date for the hero block
+          img: '/images/projects/project-3/iceberg.gif', 
+          description: 'MIT Hackathon Winner', 
+          date: '2025-01-15' 
         }
       },
       { type: 'text', data: { content: 'This is a text block.' } }
